@@ -1,6 +1,6 @@
 {
   "name": "hello-world",
-  "private": true,
+  "homepage": "https://peterrssen.github.io/hello-world/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
