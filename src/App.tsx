@@ -9,6 +9,7 @@ function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isSliderActive, setIsSliderActive] = useState(false);
   const [time, setTime] = useState(0);
+  const [onMute, setOnMute] = useState(false);
 
   const playingButton = () => {
     if (isPlaying) {
@@ -23,6 +24,7 @@ function App() {
   const stopButton = () => {
     stop();
     setIsPlaying(false);
+    setTime(0);
   };
 
 
