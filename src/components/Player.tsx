@@ -41,7 +41,9 @@ const Player: React.FC<PlayerProps> = ({ track, onTrackPlay }) => {
         //Implementing the setInterval method
         if (isPlaying && audioRef.current && !isSliderActive) {
             const interval = setInterval(() => {
-                setTime(audioRef.current.currentTime * 1000);
+                if (audioRef.current) {
+                    setTime(audioRef.current.currentTime * 1000);
+                }
             }, 100);
             return () => clearInterval(interval);
         }
@@ -50,7 +52,9 @@ const Player: React.FC<PlayerProps> = ({ track, onTrackPlay }) => {
 
     const handleSliderChangeComplete = () => {
         setTime(time);
-        audioRef.current.currentTime = time / 1000;
+        if (audioRef.current) {
+            audioRef.current.currentTime = time / 1000;
+        }
         setIsSliderActive(false);
     };
 
