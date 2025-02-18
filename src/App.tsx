@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Playlist from './components/Playlist';
-import Player from './components/player';
+import Player from './components/Player';
 import { Track, tracks } from './components/Tracks';
 import './App.css';
 
