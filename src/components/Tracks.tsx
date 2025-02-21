@@ -10,6 +10,7 @@ export interface Track {
     interpret: string;
     cover: string;
     duration: string;
+    index: number;
 }
 
 export const tracks: Track[] = [
@@ -18,13 +19,15 @@ export const tracks: Track[] = [
         url: epicCinema,
         interpret: 'Trinix ft Rushawn',
         cover: epicCinemaCover,
-        duration: "1:46"
+        duration: "1:46",
+        index: 0
     },
     {
         title: 'We Are The World',
         url: epicRock,
         interpret: 'Michael Jackson',
         cover: epicRockCover,
-        duration: "3:23"
+        duration: "3:23",
+        index: 1
     }
 ];

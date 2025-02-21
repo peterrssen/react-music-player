@@ -1,0 +1,32 @@
+.audio-player-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    min-width: 320px;
+    justify-content: center;
+}
+
+.player {
+    display: flex;
+    padding: 10px;
+    width: 100%;
+}
+
+.cover {
+    display: flex;
+    border-radius: 10px !important;
+    width: 120px;
+    height: 120px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-content: flex-start;
+}

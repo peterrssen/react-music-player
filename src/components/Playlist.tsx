@@ -1,28 +1,35 @@
 import React from 'react';
 import './Playlist.css'
 import { FaPause, FaPlay } from "react-icons/fa"
-import { Track } from './Tracks';
-import ListGroup from 'react-bootstrap/ListGroup';
+import { Track, tracks } from './Tracks';
+import { useAudioPlayerContext } from './AudioPlayerContext';
 
 interface PlaylistProps {
-    tracks: Track[];
-    onSelectTrack: (track: Track) => void;
-    currentTrack: Track | null;
+    playSong: (track?: Track) => void;
+    pauseSong: () => void;
 }
 
-
-const Playlist: React.FC<PlaylistProps> = ({ tracks, onSelectTrack, currentTrack }) => {
+const Playlist: React.FC<PlaylistProps> = ({ playSong, pauseSong }) => {
     console.log("Render Playlist");
+    const { isPlaying, currentTrack, setCurrentTrack } = useAudioPlayerContext();
+
+    const handlePlaylistClick = (track: Track) => {
+        if (track === currentTrack) {
+            isPlaying ? pauseSong() : playSong();
+        } else {
+            setCurrentTrack(track);
+        }
+    }
 
     return (
         <div>
             <ul className="playlist">
-                {tracks.map((track, index) => (
-                    <li className="playlist-item selected" key={index} onClick={() => onSelectTrack(track)}>
+                {tracks.map((track) => (
+                    <li className="playlist-item selected" key={track.index} onClick={() => handlePlaylistClick(track)}>
                         <div className='list-cover-container'>
                             <img className="list-cover" src={track.cover} />
-                            <div className="overlay">{(currentTrack && currentTrack.url === track.url) ? <FaPause /> : <FaPlay />}</div>
-                            {currentTrack && currentTrack.url === track.url && (
+                            <div className="overlay">{(isPlaying && currentTrack.url === track.url) ? <FaPause /> : <FaPlay />}</div>
+                            {isPlaying && currentTrack.url === track.url && (
                                 <div className="container">
                                     <div className="bar" style={{ animationDelay: '0s' }}></div>
                                     <div className="bar" style={{ animationDelay: '0.4s' }}></div>

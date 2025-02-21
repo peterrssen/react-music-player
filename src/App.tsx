@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Playlist from './components/Playlist';
-import Player from './components/Player';
 import { Track, tracks } from './components/Tracks';
 import './App.css';
+import AudioPlayer from './components/AudioPlayer';
+import { AudioPlayerProvider } from './components/AudioPlayerContext';
 
 
 const App: React.FC = () => {
@@ -11,11 +11,10 @@ const App: React.FC = () => {
   console.log("Render App");
 
   return (
-    <div>
-      <div className='player-container'>
-        <Player track={selectedTrack} onTrackPlay={setCurrentTrack} />
-        <Playlist tracks={tracks} onSelectTrack={setSelectedTrack} currentTrack={currentTrack} />
-      </div>
+    <div className='app-container'>
+      <AudioPlayerProvider>
+        <AudioPlayer />
+      </AudioPlayerProvider>
     </div>
   );
 };
