@@ -1,6 +1,7 @@
 import { FaAngleLeft, FaAngleRight, FaDownload, FaPause, FaPlay, FaVolumeDown, FaVolumeMute, FaVolumeUp } from "react-icons/fa";
 import { useAudioPlayerContext } from "./AudioPlayerContext";
-import { Track } from "./Tracks";
+import ConfettiExplosion from 'react-confetti-explosion';
+import { useState } from "react";
 
 interface AudioControlsProps {
     playSong: () => void;
@@ -10,7 +11,8 @@ interface AudioControlsProps {
 }
 
 const AudioControls: React.FC<AudioControlsProps> = ({ playSong, pauseSong, nextSong, previousSong }) => {
-    const { isPlaying, currentTrack, volume, setVolume } = useAudioPlayerContext();
+    const { isPlaying, currentTrack } = useAudioPlayerContext();
+    const [isExploding, setIsExploding] = useState(false);
 
     return (
         <div>
@@ -22,6 +24,10 @@ const AudioControls: React.FC<AudioControlsProps> = ({ playSong, pauseSong, next
                     <button><FaDownload /></button>
                 </a>
             )}
+            
+            <button onClick={()=>(setIsExploding(true))}>
+                {isExploding && <ConfettiExplosion onComplete={() => (setIsExploding(false))} />}
+            </button>
         </div>
     );
 }
