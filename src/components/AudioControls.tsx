@@ -3,7 +3,7 @@ import { useAudioPlayerContext } from "./AudioPlayerContext";
 import { Track } from "./Tracks";
 
 interface AudioControlsProps {
-    playSong: (track?: Track) => void;
+    playSong: () => void;
     pauseSong: () => void;
     nextSong: () => void;
     previousSong: () => void;

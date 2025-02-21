@@ -12,7 +12,9 @@ const AudioProgressBar = () => {
         //Implementing the setInterval method
         if (isPlaying && audioRef.current && !isSliderActive) {
             const interval = setInterval(() => {
-                setTime(audioRef.current.currentTime * 1000);
+                if (audioRef.current) {
+                    setTime(audioRef.current.currentTime * 1000);
+                }
             }, 100);
             return () => clearInterval(interval);
         }
