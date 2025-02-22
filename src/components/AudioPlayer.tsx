@@ -14,6 +14,10 @@ const AudioPlayer = () => {
     const [isExploding, setIsExploding] = useState(false);
 
     useEffect(() => {
+        setIsExploding(true)
+    }, [])
+
+    useEffect(() => {
         if (isPlaying) {
             playSong();
         }
