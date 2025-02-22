@@ -5,11 +5,13 @@ import AudioProgressBar from './AudioProgressBar';
 import AudioControls from './AudioControls';
 import Playlist from './Playlist';
 import { Track, tracks } from './Tracks';
+import ConfettiExplosion from 'react-confetti-explosion';
 
 
 const AudioPlayer = () => {
     console.log("Render Player");
     const { isPlaying, setIsPlaying, currentTrack, setCurrentTrack, audioRef } = useAudioPlayerContext();
+    const [isExploding, setIsExploding] = useState(false);
 
     useEffect(() => {
         if (isPlaying) {
@@ -48,7 +50,8 @@ const AudioPlayer = () => {
     return (
         <div className='audio-player-container'>
             <div className='player'>
-                <div className='cover'>
+                <div onClick={()=>(setIsExploding(true))} className='cover'>
+                    {isExploding && <ConfettiExplosion onComplete={() => (setIsExploding(false))} />}
                     <img src={currentTrack?.cover} />
                 </div>
                 <div className='info'>
