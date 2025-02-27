@@ -1,7 +1,6 @@
 .progress-container {
     display: flex;
     flex-direction: column;
-    width: 100%;
     padding-top: 5px;
 }
 
@@ -17,7 +16,6 @@ input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
     /* creating a custom design */
-    width: 100%;
     cursor: pointer;
     outline: none;
     /*  slider progress trick  */
