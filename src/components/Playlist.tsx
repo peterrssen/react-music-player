@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Playlist.css'
 import { FaPause, FaPlay } from "react-icons/fa"
-import { Track, tracks } from './Tracks';
+import { Track } from './Tracks';
 import { useAudioPlayerContext } from './AudioPlayerContext';
+import { formatTime } from './Helper';
+import { Reorder } from 'framer-motion';
 
 interface PlaylistProps {
     playSong: (track?: Track) => void;
@@ -11,21 +13,32 @@ interface PlaylistProps {
 
 const Playlist: React.FC<PlaylistProps> = ({ playSong, pauseSong }) => {
     console.log("Render Playlist");
-    const { isPlaying, currentTrack, setCurrentTrack } = useAudioPlayerContext();
+    const { isPlaying, trackList, setTrackList, currentTrack, setCurrentTrack } = useAudioPlayerContext();
+    const [isDragging, setIsDragging] = useState(false);
+    console.log("Render Playlist II");
 
     const handlePlaylistClick = (track: Track) => {
-        if (track === currentTrack) {
-            isPlaying ? pauseSong() : playSong();
-        } else {
-            setCurrentTrack(track);
+        console.log(track.title);
+        console.log(currentTrack)
+        if (!isDragging) {
+            if (track === currentTrack) {
+                isPlaying ? pauseSong() : playSong();
+            } else {
+                setCurrentTrack(track);
+            }
         }
     }
 
     return (
         <div>
-            <ul className="playlist">
-                {tracks.map((track) => (
-                    <li className="playlist-item selected" key={track.index} onClick={() => handlePlaylistClick(track)}>
+            <Reorder.Group className="playlist" axis="y" values={trackList} onReorder={setTrackList}>
+                {trackList.map((track) => (
+                    <Reorder.Item className="playlist-item selected"
+                        value={track}
+                        key={track.url}
+                        onClick={() => handlePlaylistClick(track)}
+                        onDragStart={() => setIsDragging(true)}
+                        onDragEnd={() => setIsDragging(false)}>
                         <div className='list-cover-container'>
                             <img className="list-cover" src={track.cover} />
                             <div className="overlay">{(isPlaying && currentTrack.url === track.url) ? <FaPause /> : <FaPlay />}</div>
@@ -42,10 +55,10 @@ const Playlist: React.FC<PlaylistProps> = ({ playSong, pauseSong }) => {
                             <div className="info-title">{track.title}</div>
                             <div className="info-artist">{track.interpret}</div>
                         </div>
-                        <div className='list-duration'>{track.duration}</div>
-                    </li>
+                        <div className='list-duration'>{formatTime(track.duration)}</div>
+                    </Reorder.Item>
                 ))}
-            </ul>
+            </Reorder.Group>
         </div>
     );
 };

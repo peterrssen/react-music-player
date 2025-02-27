@@ -1,7 +1,8 @@
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Raleway", sans-serif;
     background-color: #f0f0f0;
-    background-image: url("./assets/background.webp");
-    background-size: cover; /* Skaliert das Bild, um den gesamten Bildschirm zu füllen */
+    /*background-image: url("./assets/background.webp");*/
+    background-size: cover;
+    /* Skaliert das Bild, um den gesamten Bildschirm zu füllen */
     background-position: center;
 }

@@ -4,10 +4,12 @@ import { Track, tracks } from './Tracks';
 interface AudioPlayerContextProps {
     isPlaying: boolean;
     setIsPlaying: (isPlaying: boolean) => void;
+    trackList: Track[];
+    setTrackList: (tracks: Track[]) => void;
     currentTrack: Track;
     setCurrentTrack: (track: Track) => void;
-    currentTrackIndex: number;
-    setCurrentTrackIndex: (index: number) => void;
+    shuffleList: Number[];
+    setShuffleList: (shuffleList: Number[]) => void;
     volume: number;
     setVolume: (volume: number) => void;
     audioRef: React.RefObject<HTMLAudioElement>;
@@ -17,18 +19,21 @@ export const AudioPlayerContext = createContext<AudioPlayerContextProps | undefi
 
 export const AudioPlayerProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [isPlaying, setIsPlaying] = useState<boolean>(false);
-    const [currentTrackIndex, setCurrentTrackIndex] = useState<number>(0);
-    const [currentTrack, setCurrentTrack] = useState<Track>(tracks[currentTrackIndex]);
+    const [trackList, setTrackList] = useState<Track[]>(tracks);
+    const [currentTrack, setCurrentTrack] = useState<Track>(tracks[0]);
+    const [shuffleList, setShuffleList] = useState<Number[]>([]);
     const [volume, setVolume] = useState<number>(1);
     const audioRef = useRef<HTMLAudioElement>(null);
 
     const contextValue = {
         isPlaying,
         setIsPlaying,
-        currentTrackIndex,
-        setCurrentTrackIndex,
+        trackList,
+        setTrackList,
         currentTrack,
         setCurrentTrack,
+        shuffleList,
+        setShuffleList,
         volume,
         setVolume,
         audioRef,

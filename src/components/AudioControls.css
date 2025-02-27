@@ -1,0 +1,34 @@
+.audio-controls-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    font-size: 1.2em;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.track-controls-container {
+    display: flex;
+    align-items: center;
+}
+
+.other-controls-container {
+    display: flex;
+    align-items: center;
+}
+
+.play-pause-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: linear-gradient(90deg, #EE6F20, #e7a234);
+    font-size: 1.4em;
+}
