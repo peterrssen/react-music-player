@@ -9,6 +9,7 @@ button {
     border: none;
     background-color: transparent;
     font-size: 1.2em;
+    -webkit-appearance: none
 }
 
 button:hover {
@@ -31,4 +32,5 @@ button:hover {
     align-items: center;
     color: linear-gradient(90deg, #EE6F20, #e7a234);
     font-size: 1.4em;
+    color: black;
 }
