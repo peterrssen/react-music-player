@@ -35,7 +35,7 @@ const Playlist: React.FC<PlaylistProps> = ({ playSong, pauseSong }) => {
                 {trackList.map((track) => (
                     <Reorder.Item className="playlist-item selected"
                         value={track}
-                        key={track.url}
+                        key={track.id}
                         onClick={() => handlePlaylistClick(track)}
                         onDragStart={() => setIsDragging(true)}
                         onDragEnd={() => setIsDragging(false)}>
