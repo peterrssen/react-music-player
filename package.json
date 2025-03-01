@@ -1,6 +1,6 @@
 {
-  "name": "hello-world",
-  "homepage": "https://peterrssen.github.io/hello-world/",
+  "name": "react-music-player",
+  "homepage": "https://peterrssen.github.io/react-music-player/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
