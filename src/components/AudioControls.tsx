@@ -15,21 +15,21 @@ const AudioControls: React.FC<AudioControlsProps> = ({ playSong, pauseSong, next
     return (
         <div className="audio-controls-container">
             <div className="track-controls-container">
-                <button onClick={previousSong}><FaBackwardStep /></button>
-                <button className="play-pause-button" onClick={isPlaying ? pauseSong : playSong}>
+                <button className='audio-control-button' onClick={previousSong}><FaBackwardStep /></button>
+                <button className="audio-control-button play-pause-button" onClick={isPlaying ? pauseSong : playSong}>
                     {isPlaying ? <FaPause /> : <FaPlay />}
                 </button>
-                <button onClick={nextSong}><FaForwardStep /></button>
+                <button className='audio-control-button' onClick={nextSong}><FaForwardStep /></button>
             </div>
             <div className="other-controls-container">
-                <button>
+                <button className='audio-control-button'>
                     <FaShuffle />
                 </button>
-                <button onClick={volume ? () => setVolume(0) : () => setVolume(1)}>
+                <button className='audio-control-button' onClick={volume ? () => setVolume(0) : () => setVolume(1)}>
                     {volume ? <FaVolumeHigh /> : <FaVolumeXmark />}
                 </button>
                 <a href={currentTrack.url} download={currentTrack.title}>
-                    <button><FaDownload /></button>
+                    <button className='audio-control-button'><FaDownload /></button>
                 </a>
             </div>
         </div >

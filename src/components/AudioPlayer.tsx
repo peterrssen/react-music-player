@@ -6,11 +6,6 @@ import AudioControls from './AudioControls';
 import Playlist from './Playlist';
 import { Track, tracks } from './Tracks';
 import ConfettiExplosion from 'react-confetti-explosion';
-import { a } from 'framer-motion/dist/types.d-6pKw1mTI';
-
-const getRandomColor = (colors: string | any[]) => {
-    return colors[Math.floor(Math.random() * colors.length)];
-};
 
 
 const AudioPlayer = () => {
@@ -51,7 +46,7 @@ const AudioPlayer = () => {
         if (currentTackIndex + 1 < trackList.length) {
             setCurrentTrack(trackList[currentTackIndex + 1]);
         } else {
-            setIsPlaying(false);
+            setCurrentTrack(trackList[0])
         }
     };
 
@@ -59,6 +54,8 @@ const AudioPlayer = () => {
         const currentTackIndex = getTrackIndex(currentTrack);
         if (currentTackIndex - 1 >= 0) {
             setCurrentTrack(trackList[currentTackIndex - 1]);
+        } else {
+            setCurrentTrack(trackList[trackList.length - 1])
         }
     }
 

@@ -8,11 +8,9 @@ const App: React.FC = () => {
   console.log("Render App");
 
   return (
-    <div className='app-container'>
-      <AudioPlayerProvider>
-        <AudioPlayer />
-      </AudioPlayerProvider>
-    </div>
+    <AudioPlayerProvider>
+      <AudioPlayer />
+    </AudioPlayerProvider>
   );
 };
 

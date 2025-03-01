@@ -3,22 +3,22 @@
     justify-content: space-between;
 }
 
-button {
+.audio-control-button {
     display: flex;
     align-items: center;
     border: none;
     background-color: transparent;
     font-size: 1.2em;
-    -webkit-appearance: none
+    color: black;
+    padding: 5px;
 }
 
-button:hover {
+.audio-control-button:hover {
     cursor: pointer;
 }
 
 .track-controls-container {
     display: flex;
-    align-items: center;
 }
 
 .other-controls-container {
@@ -27,10 +27,6 @@ button:hover {
 }
 
 .play-pause-button {
-    display: flex;
-    justify-content: center;
     align-items: center;
-    color: linear-gradient(90deg, #EE6F20, #e7a234);
     font-size: 1.4em;
-    -webkit-appearance: none
 }

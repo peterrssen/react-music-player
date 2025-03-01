@@ -1,26 +1,32 @@
 .audio-player-container {
     display: flex;
-    flex-direction: column;
-    width: 100%;
+    min-width: 350px;
     max-width: 500px;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
     background: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 0px;
-    overflow: hidden;
-    min-width: 320px;
-    justify-content: center;
     padding: 5px;
+    overflow: hidden;
 }
+
 
 .player {
     display: flex;
 }
 
 .playlist-container {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 300px;
     padding-top: 18px;
+    max-height: 500px;
 }
 
 .cover {
+
     display: flex;
     width: 120px;
     height: 120px;
@@ -36,15 +42,6 @@
 }
 
 .current-track-title {
-    /*
-    background: linear-gradient(90deg,
-            #BB444A, #779D64, #39538A, #53435F, #F5AF5A,
-            #BB444A, #779D64, #39538A, #53435F, #F5AF5A,
-            #BB444A, #779D64, #39538A, #53435F, #F5AF5A);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    */
     font-size: 1.8em;
     font-weight: bold;
 }
