@@ -3,12 +3,14 @@ import theSoundOfLoudness from '../assets/TheSoundOfLoudness.mp3';
 import code from '../assets/Code.mp3';
 import werkstatt from '../assets/Werkstatt.mp3';
 import werkstattRemix from '../assets/Werkstatt-Remix.mp3';
+import schwammDrueberSong from '../assets/SchwammDrueberSong.mp3';
 
 import karnevalImMittelrheintalCover from '../assets/KarnevalImMittelrheintal-cover.webp';
 import theSoundOfLoudnessCover from '../assets/TheSoundOfLoudness-cover.jpeg';
 import codeCover from '../assets/code-cover.jpeg';
 import werkstattCover from '../assets/werkstatt-cover.jpeg';
 import werkstattRemixCover from '../assets/Werkstatt-Remix.jpeg';
+import schwammDrueberSongCover from '../assets/SchwammDrueberSong-cover.jpg';
 
 
 export interface Track {
@@ -47,6 +49,14 @@ export const tracks: Track[] = [
     },
     {
         id: 3,
+        title: 'Schwamm-Drüber-Song',
+        url: schwammDrueberSong,
+        interpret: 'Feucht und Fröhlich',
+        cover: schwammDrueberSongCover,
+        duration: 203184,
+    },
+    {
+        id: 4,
         title: 'Werkstatt',
         url: werkstatt,
         interpret: 'Reif R. Schaid',
@@ -54,7 +64,7 @@ export const tracks: Track[] = [
         duration: 240024,
     },
     {
-        id: 4,
+        id: 5,
         title: 'Werkstatt Remix',
         url: werkstattRemix,
         interpret: 'DJ Glitch feat, Reif R. Schaid',
