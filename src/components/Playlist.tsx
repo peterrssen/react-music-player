@@ -4,7 +4,7 @@ import { FaPause, FaPlay } from "react-icons/fa"
 import { Track } from './Tracks';
 import { useAudioPlayerContext } from './AudioPlayerContext';
 import { formatTime } from './Helper';
-import { Reorder, useDragControls } from 'framer-motion';
+import { Reorder } from 'framer-motion';
 import { FaBars } from 'react-icons/fa6';
 
 interface PlaylistProps {
@@ -16,7 +16,6 @@ const Playlist: React.FC<PlaylistProps> = ({ playSong, pauseSong }) => {
     console.log("Render Playlist");
     const { isPlaying, trackList, setTrackList, currentTrack, setCurrentTrack, onReoder } = useAudioPlayerContext();
     const [isDragging, setIsDragging] = useState(false);
-    const controls = useDragControls()
 
     const handlePlaylistClick = (track: Track) => {
         console.log(track.title);
@@ -37,8 +36,8 @@ const Playlist: React.FC<PlaylistProps> = ({ playSong, pauseSong }) => {
                     <Reorder.Item className="playlist-item selected"
                         value={track}
                         key={track.id}
-                        dragListener={false}
-                        dragControls={controls}
+                        dragListener={onReoder}
+                        layoutScroll
                         onClick={() => handlePlaylistClick(track)}
                         onDragStart={() => setIsDragging(true)}
                         onDragEnd={() => setIsDragging(false)}>
@@ -59,7 +58,7 @@ const Playlist: React.FC<PlaylistProps> = ({ playSong, pauseSong }) => {
                             <div className="info-artist">{track.interpret}</div>
                         </div>
                         <div className='list-duration'>{formatTime(track.duration)}</div>
-                        {onReoder &&<div className="reorder-handle" onPointerDown={(e) => controls.start(e)}><FaBars/></div>}
+                        {onReoder &&<div className="reorder-handle"><FaBars/></div>}
                     </Reorder.Item>
                 ))}
             </Reorder.Group>

@@ -5,7 +5,7 @@ import werkstatt from '../assets/Werkstatt.mp3';
 import werkstattRemix from '../assets/Werkstatt-Remix.mp3';
 import schwammDrueberSong from '../assets/SchwammDrueberSong.mp3';
 
-import karnevalImMittelrheintalCover from '../assets/KarnevalImMittelrheintal-cover.webp';
+import karnevalImMittelrheintalCover from '../assets/KarnevalImMittelrheintal-cover.jpg';
 import theSoundOfLoudnessCover from '../assets/TheSoundOfLoudness-cover.jpeg';
 import codeCover from '../assets/code-cover.jpeg';
 import werkstattCover from '../assets/werkstatt-cover.jpeg';
