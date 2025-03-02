@@ -8,7 +8,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "add-cname": "cp CNAME build/ && git add build/CNAME && git commit -m 'Add CNAME file' && git push"
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
