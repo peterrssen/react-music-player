@@ -1,14 +1,14 @@
-import someMetal from '../assets/some-metal.mp3';
-import checksForFree from '../assets/ChecksForFree.mp3';
-import hiFiBrutality from '../assets/HiFiBrutality.mp3';
-import rockEnergy from '../assets/RockEnergy.mp3';
-import rockTune from '../assets/RockTune.mp3';
+import karnevalImMittelrheintal from '../assets/KarnevalImMittelrheintal.mp3';
+import theSoundOfLoudness from '../assets/TheSoundOfLoudness.mp3';
+import code from '../assets/Code.mp3';
+import werkstatt from '../assets/Werkstatt.mp3';
+import werkstattRemix from '../assets/Werkstatt-Remix.mp3';
 
-import someMetalCover from '../assets/some-metal-cover2.png';
-import rockEnergyCover from '../assets/RockEnergy-cover.png';
-import epicRockCover from '../assets/some-metal-cover.png';
-import hiFiBrutalityCover from '../assets/HiFiBrutality-dover.jpg';
-import checksForFreeCover from '../assets/ChecksForFree-cover.png';
+import karnevalImMittelrheintalCover from '../assets/KarnevalImMittelrheintal-cover.webp';
+import theSoundOfLoudnessCover from '../assets/TheSoundOfLoudness-cover.jpeg';
+import codeCover from '../assets/code-cover.jpeg';
+import werkstattCover from '../assets/werkstatt-cover.jpeg';
+import werkstattRemixCover from '../assets/Werkstatt-Remix.jpeg';
 
 
 export interface Track {
@@ -23,42 +23,42 @@ export interface Track {
 export const tracks: Track[] = [
     {
         id: 0,
-        title: 'We Are The World',
-        url: someMetal,
-        interpret: 'Thunderstrike',
-        cover: someMetalCover,
-        duration: 203472,
+        title: 'Karneval im Mittelrheintal',
+        url: karnevalImMittelrheintal,
+        interpret: 'DJ Hopsi',
+        cover: karnevalImMittelrheintalCover,
+        duration: 121800,
     },
     {
         id: 1,
-        title: 'Checks For Free',
-        url: checksForFree,
-        interpret: 'Electric Echo',
-        cover: checksForFreeCover,
-        duration: 61129,
+        title: 'The sound of loudness',
+        url: theSoundOfLoudness,
+        interpret: 'Alex & DJ KI',
+        cover: theSoundOfLoudnessCover,
+        duration: 240024,
     },
     {
         id: 2,
-        title: 'HiFi Brutality',
-        url: hiFiBrutality,
-        interpret: 'Crimson Vortex',
-        cover: hiFiBrutalityCover,
-        duration: 136780,
+        title: 'Code',
+        url: code,
+        interpret: 'Die Notkascher',
+        cover: codeCover,
+        duration: 191424,
     },
     {
         id: 3,
-        title: 'Rock Energy',
-        url: rockEnergy,
-        interpret: 'Midnight Blaze',
-        cover: rockEnergyCover,
-        duration: 115046,
+        title: 'Werkstatt',
+        url: werkstatt,
+        interpret: 'Reif R. Schaid',
+        cover: werkstattCover,
+        duration: 240024,
     },
     {
         id: 4,
-        title: 'Rock Tune',
-        url: rockTune,
-        interpret: 'Steel Serpent',
-        cover: epicRockCover,
-        duration: 170586,
+        title: 'Werkstatt Remix',
+        url: werkstattRemix,
+        interpret: 'DJ Glitch feat, Reif R. Schaid',
+        cover: werkstattRemixCover,
+        duration: 240024,
     }
 ];
