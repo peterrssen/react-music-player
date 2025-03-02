@@ -13,6 +13,15 @@ const AudioPlayer = () => {
     const { isPlaying, setIsPlaying, currentTrack, setCurrentTrack, audioRef, trackList, setTrackList } = useAudioPlayerContext();
     const [isExploding, setIsExploding] = useState(false);
     const [isInitialized, setIsInitialized] = useState(false);
+    const titleRef = useRef<HTMLDivElement | null>(null); 
+    const [isMarquee, setIsMarquee] = useState(false);
+
+    useEffect(() => {
+        // Überprüfen, ob der Text breiter ist als der Container
+        if (titleRef.current && titleRef.current.scrollWidth > titleRef.current.clientWidth) {
+          setIsMarquee(true);  // Wenn der Text zu lang ist, Animation aktivieren
+        }
+      }, []);
 
     useEffect(() => {
         console.log("Render Startup");
@@ -67,7 +76,7 @@ const AudioPlayer = () => {
                     <img className='cover' src={currentTrack?.cover} />
                 </div>
                 <div className='info'>
-                    <div className='current-track-title'>{currentTrack?.title}</div>
+                    <div className='current-track-title'>{currentTrack?.title}</div>             
                     <div>{currentTrack?.interpret}</div>
                     <AudioProgressBar />
                     <AudioControls playSong={playSong} pauseSong={pauseSong} nextSong={nextSong} previousSong={previousSong} />
