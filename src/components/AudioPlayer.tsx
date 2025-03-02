@@ -10,7 +10,7 @@ import ConfettiExplosion from 'react-confetti-explosion';
 
 const AudioPlayer = () => {
     console.log("Render Player");
-    const { isPlaying, setIsPlaying, currentTrack, setCurrentTrack, audioRef, volume, trackList, setTrackList } = useAudioPlayerContext();
+    const { isPlaying, setIsPlaying, currentTrack, setCurrentTrack, audioRef, trackList, setTrackList } = useAudioPlayerContext();
     const [isExploding, setIsExploding] = useState(false);
     const [isInitialized, setIsInitialized] = useState(false);
 
@@ -25,10 +25,6 @@ const AudioPlayer = () => {
             playSong();
         }
     }, [currentTrack]);
-
-    useEffect(() => {
-        audioRef.current!.volume = volume;
-    }, [volume]);
 
     const playSong = (track?: Track) => {
         audioRef.current?.play();

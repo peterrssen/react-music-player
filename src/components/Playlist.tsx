@@ -4,7 +4,8 @@ import { FaPause, FaPlay } from "react-icons/fa"
 import { Track } from './Tracks';
 import { useAudioPlayerContext } from './AudioPlayerContext';
 import { formatTime } from './Helper';
-import { Reorder } from 'framer-motion';
+import { Reorder, useDragControls } from 'framer-motion';
+import { FaBars } from 'react-icons/fa6';
 
 interface PlaylistProps {
     playSong: (track?: Track) => void;
@@ -13,9 +14,9 @@ interface PlaylistProps {
 
 const Playlist: React.FC<PlaylistProps> = ({ playSong, pauseSong }) => {
     console.log("Render Playlist");
-    const { isPlaying, trackList, setTrackList, currentTrack, setCurrentTrack } = useAudioPlayerContext();
+    const { isPlaying, trackList, setTrackList, currentTrack, setCurrentTrack, onReoder } = useAudioPlayerContext();
     const [isDragging, setIsDragging] = useState(false);
-    console.log("Render Playlist II");
+    const controls = useDragControls()
 
     const handlePlaylistClick = (track: Track) => {
         console.log(track.title);
@@ -36,6 +37,8 @@ const Playlist: React.FC<PlaylistProps> = ({ playSong, pauseSong }) => {
                     <Reorder.Item className="playlist-item selected"
                         value={track}
                         key={track.id}
+                        dragListener={false}
+                        dragControls={controls}
                         onClick={() => handlePlaylistClick(track)}
                         onDragStart={() => setIsDragging(true)}
                         onDragEnd={() => setIsDragging(false)}>
@@ -56,6 +59,7 @@ const Playlist: React.FC<PlaylistProps> = ({ playSong, pauseSong }) => {
                             <div className="info-artist">{track.interpret}</div>
                         </div>
                         <div className='list-duration'>{formatTime(track.duration)}</div>
+                        {onReoder &&<div className="reorder-handle" onPointerDown={(e) => controls.start(e)}><FaBars/></div>}
                     </Reorder.Item>
                 ))}
             </Reorder.Group>

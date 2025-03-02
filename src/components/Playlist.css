@@ -113,3 +113,10 @@
         transform: scaleY(2);
     }
 }
+
+.reorder-handle {
+    color: #bfbfbf;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+}

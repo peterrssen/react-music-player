@@ -8,10 +8,8 @@ interface AudioPlayerContextProps {
     setTrackList: (tracks: Track[]) => void;
     currentTrack: Track;
     setCurrentTrack: (track: Track) => void;
-    shuffleList: Number[];
-    setShuffleList: (shuffleList: Number[]) => void;
-    volume: number;
-    setVolume: (volume: number) => void;
+    onReoder: boolean;
+    setOnReoder: (onReoder: boolean) => void
     audioRef: React.RefObject<HTMLAudioElement>;
 }
 
@@ -21,8 +19,7 @@ export const AudioPlayerProvider: React.FC<{ children: ReactNode }> = ({ childre
     const [isPlaying, setIsPlaying] = useState<boolean>(false);
     const [trackList, setTrackList] = useState<Track[]>(tracks);
     const [currentTrack, setCurrentTrack] = useState<Track>(tracks[0]);
-    const [shuffleList, setShuffleList] = useState<Number[]>([]);
-    const [volume, setVolume] = useState<number>(1);
+    const [onReoder, setOnReoder] = useState<boolean>(false);
     const audioRef = useRef<HTMLAudioElement>(null);
 
     const contextValue = {
@@ -32,10 +29,8 @@ export const AudioPlayerProvider: React.FC<{ children: ReactNode }> = ({ childre
         setTrackList,
         currentTrack,
         setCurrentTrack,
-        shuffleList,
-        setShuffleList,
-        volume,
-        setVolume,
+        onReoder,
+        setOnReoder,
         audioRef,
     };
 
