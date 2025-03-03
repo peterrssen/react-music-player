@@ -36,6 +36,7 @@ const AudioPlayer = () => {
     }, [currentTrack]);
 
     const playSong = (track?: Track) => {
+        document.title = currentTrack.interpret + " - " + currentTrack.title;
         audioRef.current?.play();
         setIsPlaying(true);
     }
